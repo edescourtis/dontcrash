@@ -23,7 +23,9 @@
 
 #include "erl_nif.h"
 
+#ifdef _WIN32
 #include <Windows.h>
+#endif
 
 static ERL_NIF_TERM dontcrash_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]);
 static ERL_NIF_TERM crash_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]);
@@ -46,9 +48,9 @@ static ERL_NIF_TERM crash_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[
 
 static ERL_NIF_TERM dontcrash_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
 {
-
+#ifdef _WIN32
     (void)SetErrorMode(SEM_NOGPFAULTERRORBOX);
-    
+#endif
     return enif_make_atom(env, "ok");
 
 }
