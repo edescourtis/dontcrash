@@ -1,0 +1,4 @@
+{application, dontcrash,
+ [{description, "A simple application that prevents the error dialog box in windows"},
+  {vsn, "1.0"},
+  {applications, [kernel, stdlib]}]}.
