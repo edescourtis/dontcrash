@@ -5,3 +5,4 @@ priv/*.dll
 priv/*.lib
 priv/*.exp
 .eunit
+vc100.pdb
