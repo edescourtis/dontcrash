@@ -20,4 +20,9 @@ crash() ->
 %% -------------------------------------------------------------------------
 
 load_nif() ->
-    erlang:load_nif(filename:join(code:priv_dir(dontcrash), "dontcrash"), 0).
+    case os:type() of
+        {win32, _} ->
+            erlang:load_nif(filename:join(code:priv_dir(dontcrash), "dontcrash"), 0);
+        _ ->
+            ok
+    end.
